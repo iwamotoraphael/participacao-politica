@@ -108,9 +108,20 @@ categorias_por_subprefeitura = data.groupby('Subprefeitura')['Categoria'].agg(la
 contagem_categorias = categorias_por_subprefeitura.value_counts()
 
 # Configurações do gráfico
-plt.figure(figsize=(15, 8))
+plt.figure(figsize=(17, 12))
 plt.pie(contagem_categorias, labels=contagem_categorias.index, autopct='%1.1f%%', startangle=90)
 plt.title('Categorias Predominantes por Subprefeitura')
+
+# Exibição do gráfico
+plt.show()
+
+# Contagem das categorias no conjunto de dados completo
+contagem_categorias = data['Categoria'].value_counts()
+
+# Configurações do gráfico
+plt.figure(figsize=(17, 12))
+plt.pie(contagem_categorias, labels=contagem_categorias.index, autopct='%1.1f%%', startangle=90)
+plt.title('Categorias Predominantes no Total de Propostas')
 
 # Exibição do gráfico
 plt.show()
@@ -132,7 +143,7 @@ print(df_subprefeituras)
 df_subprefeituras_ordenado = df_subprefeituras.sort_values(by='População Total', ascending=False)
 
 plt.figure(figsize=(14, 6))
-plt.bar(df_subprefeituras['Subprefeitura'], df_subprefeituras_ordenado['População Total'])
+plt.bar(df_subprefeituras_ordenado['Subprefeitura'], df_subprefeituras_ordenado['População Total'])
 plt.xlabel('Subprefeitura')
 plt.ylabel('População Total')
 plt.title('População Total por Subprefeitura')
@@ -143,7 +154,7 @@ plt.show()
 df_subprefeituras_ordenado = df_subprefeituras.sort_values(by='Densidade Demográfica', ascending=False)
 
 plt.figure(figsize=(14, 6))
-plt.bar(df_subprefeituras['Subprefeitura'], df_subprefeituras_ordenado['Densidade Demográfica'])
+plt.bar(df_subprefeituras_ordenado['Subprefeitura'], df_subprefeituras_ordenado['Densidade Demográfica'])
 plt.xlabel('Subprefeitura')
 plt.ylabel('Densidade Demográfica')
 plt.title('Densidade Demográfica por Subprefeitura')
