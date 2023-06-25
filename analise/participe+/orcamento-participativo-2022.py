@@ -202,8 +202,19 @@ plt.show()
 
 # Proporção de propostas por habitante da Subprefeitura
 df_subprefeituras_propostas['Proporção de Propostas'] = df_subprefeituras_propostas['Total de Propostas'] / df_subprefeituras_propostas['População Total']
-df_subprefeituras_propostas.sort_values(by='Proporção de Propostas', ascending=False)
+df_subprefeituras_propostas = df_subprefeituras_propostas.sort_values(by='Proporção de Propostas', ascending=False)
 print("Proporção de propostas em relação à população:\n", df_subprefeituras_propostas[['Subprefeitura', 'Proporção de Propostas']])
+
+# Criar o gráfico de barras
+plt.figure(figsize=(10, 6))
+plt.bar(df_subprefeituras_propostas['Subprefeitura'], df_subprefeituras_propostas['Proporção de Propostas'])
+plt.xticks(rotation=90)
+plt.xlabel('Subprefeitura')
+plt.ylabel('Proporção de Propostas por Habitante')
+plt.title('Proporção de Propostas por Habitante em cada Subprefeitura')
+
+# Exibir o gráfico
+plt.show()
 
 # Cálculo da correlação entre População Total e Total de Propostas (valor entre -1 e 1)
 correlacao = df_subprefeituras_propostas['População Total'].corr(df_subprefeituras_propostas['Total de Propostas'])
