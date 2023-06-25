@@ -248,7 +248,7 @@ def dados_gerais_da_subprefeitura(nome_da_subprefeitura: str) -> None:
   print("População total:", populacao_total)
   print("Densidade demográfica:", densidade_demografica)
 
-def propostas_por_categoria(nome_da_subprefeitura: str) -> None:
+def grafico_propostas_por_categoria(nome_da_subprefeitura: str) -> None:
   subprefeitura_data = data[data['Subprefeitura'] == nome_da_subprefeitura]
 
   # Contar o número de propostas em cada categoria
@@ -306,13 +306,36 @@ def propostas_eleitas(nome_da_subprefeitura: str) -> None:
     print("- Viabilidade:", proposta['Viabilidade'])
     print()
 
+def grafico_propostas_eleitas_viaveis(nome_da_subprefeitura: str) -> None:
+  subprefeitura_data = data[data['Subprefeitura'] == nome_da_subprefeitura]
+
+  total_propostas = len(subprefeitura_data)
+  eleitas = sum(subprefeitura_data['Resultado da votação'] == 'Eleita')
+
+  # Calcular o número de propostas consideradas viáveis após serem eleitas
+  eleitas_viaveis = sum((subprefeitura_data['Resultado da votação'] == 'Eleita') & (subprefeitura_data['Viabilidade'] == 'Viável'))
+
+  # Criar o gráfico de barras
+  plt.figure(figsize=(10, 6))
+  plt.bar(['Total', 'Eleitas', 'Viáveis'], [total_propostas, eleitas, eleitas_viaveis])
+  plt.xlabel('Propostas')
+  plt.ylabel('Total')
+  plt.title(f"Propostas totais, eleitas e viáveis - {nome_da_subprefeitura}")
+
+  # Exibir o número correspondente de propostas acima de cada barra
+  for i, v in enumerate([total_propostas, eleitas, eleitas_viaveis]):
+      plt.text(i, v + 0.5, str(v), ha='center', va='bottom')
+
+  # Exibir o gráfico
+  plt.show()
+
 """### Subprefeitura: Pinheiros"""
 
 subprefeitura = 'Pinheiros'
 
 dados_gerais_da_subprefeitura(subprefeitura)
 
-propostas_por_categoria(subprefeitura)
+grafico_propostas_por_categoria(subprefeitura)
 
 apoios = total_de_apoios(subprefeitura)
 if (apoios != 0):
@@ -323,3 +346,5 @@ else:
 propostas_mais_votos(subprefeitura)
 
 propostas_eleitas(subprefeitura)
+
+grafico_propostas_eleitas_viaveis(subprefeitura)
