@@ -17,31 +17,22 @@ dados_formatados <- dados[,c(2,3,4,8,9,14,15,16,19,20,22,25,26,27,28,29,30,31,32
 dados_finais <- dados_formatados[c(63,64,76,8,62,4,18,51,17,9,56,54,12,10,11,55,16,66,38,26,77,81,15,13,42,39,70,6,19,67,83,49,32,35), ]
 
 # frequências absolutas
-table(dados_finais$`População total`)
-table(dados_finais$`População preta e parda`)
 table(dados_finais$`População em situação de rua`)
 table(dados_finais$Favelas)
-table(dados_finais$`Ocorrências de trânsito`)
 table(dados_finais$`Mortes no trânsito`)
 table(dados_finais$`Tempo médio de  deslocamento por transporte público`)
 table(dados_finais$`Acesso a infraestrutura cicloviária`)
 table(dados_finais$`Acesso internet - Mapeamento das antenas (População distrito)`)
 table(dados_finais$`Oferta de emprego formal`)
-table(dados_finais$`Desigualdade salarial  (emprego  formal)`)
 table(dados_finais$`Gravidez na adolescência`)
 table(dados_finais$`Idade média ao morrer`)
 table(dados_finais$`Mortalidade materna`)
 table(dados_finais$`Mortalidade infantil`)
 table(dados_finais$`Tempo médio para consultas na Atenção Básica`)
 table(dados_finais$`Mortalidade por Covid-19`)
-table(dados_finais$`Tempo de atendimento para vaga em creche`)
-table(dados_finais$`Matrículas no Ensino Básico em escolas públicas`)
 table(dados_finais$`Distorção Idade-Série no Ensino Fundamental da rede municipal`)
 table(dados_finais$`Abandono escolar no Ensino Fundamental da rede municipal`)
 table(dados_finais$`Centros culturais, casas e espaços de cultura`)
-table(dados_finais$`Equipamentos públicos de cultura`)
-table(dados_finais$`Equipamentos públicos de esporte`)
-table(dados_finais$`Quadras esportivas nas escolas públicas`)
 table(dados_finais$`Violência racial`)
 table(dados_finais$`Violência contra a mulher`)
 table(dados_finais$`Violência LGBTQIAP+`)
@@ -51,7 +42,7 @@ table(dados_finais$Feminicídio)
 # frequências relativas
 prop.table(table(dados_finais$`População total`))
 prop.table(table(dados_finais$`População preta e parda`))
-prop.table(table(dados_finais$`População em situação de rua`))
+prop.table(table(dados_formatados$`População em situação de rua`))
 prop.table(table(dados_finais$Favelas))
 prop.table(table(dados_finais$`Ocorrências de trânsito`))
 prop.table(table(dados_finais$`Mortes no trânsito`))
@@ -83,34 +74,34 @@ prop.table(table(dados_finais$Feminicídio))
 # análise de amplitudes
 range(dados_finais$`População total`)
 range(dados_finais$`População preta e parda`)
-range(dados_finais$`População em situação de rua`)
-range(dados_finais$Favelas)
+unique(dados_finais$`População em situação de rua`)
+unique(dados_finais$Favelas)
 range(dados_finais$`Ocorrências de trânsito`)
-range(dados_finais$`Mortes no trânsito`)
-range(dados_finais$`Tempo médio de  deslocamento por transporte público`)
-range(dados_finais$`Acesso a infraestrutura cicloviária`)
-range(dados_finais$`Acesso internet - Mapeamento das antenas (População distrito)`)
-range(dados_finais$`Oferta de emprego formal`)
+unique(dados_finais$`Mortes no trânsito`)
+unique(dados_finais$`Tempo médio de  deslocamento por transporte público`)
+unique(dados_finais$`Acesso a infraestrutura cicloviária`)
+unique(dados_finais$`Acesso internet - Mapeamento das antenas (População distrito)`)
+unique(dados_finais$`Oferta de emprego formal`)
 range(dados_finais$`Desigualdade salarial  (emprego  formal)`)
-range(dados_finais$`Gravidez na adolescência`)
-range(dados_finais$`Idade média ao morrer`)
-range(dados_finais$`Mortalidade materna`)
-range(dados_finais$`Mortalidade infantil`)
-range(dados_finais$`Tempo médio para consultas na Atenção Básica`)
-range(dados_finais$`Mortalidade por Covid-19`)
+unique(dados_finais$`Gravidez na adolescência`)
+unique(dados_finais$`Idade média ao morrer`)
+unique(dados_finais$`Mortalidade materna`)
+unique(dados_finais$`Mortalidade infantil`)
+unique(dados_finais$`Tempo médio para consultas na Atenção Básica`)
+unique(dados_finais$`Mortalidade por Covid-19`)
 range(dados_finais$`Tempo de atendimento para vaga em creche`)
 range(dados_finais$`Matrículas no Ensino Básico em escolas públicas`)
 range(dados_finais$`Distorção Idade-Série no Ensino Fundamental da rede municipal`)
-range(dados_finais$`Abandono escolar no Ensino Fundamental da rede municipal`)
-range(dados_finais$`Centros culturais, casas e espaços de cultura`)
+unique(dados_finais$`Abandono escolar no Ensino Fundamental da rede municipal`)
+unique(dados_finais$`Centros culturais, casas e espaços de cultura`)
 range(dados_finais$`Equipamentos públicos de cultura`)
 range(dados_finais$`Equipamentos públicos de esporte`)
 range(dados_finais$`Quadras esportivas nas escolas públicas`)
-range(dados_finais$`Violência racial`)
-range(dados_finais$`Violência contra a mulher`)
-range(dados_finais$`Violência LGBTQIAP+`)
-range(dados_finais$`Deslocamentos médio para  denúncias de  violência  contra mulher`)
-range(dados_finais$Feminicídio)
+unique(dados_finais$`Violência racial`)
+unique(dados_finais$`Violência contra a mulher`)
+unique(dados_finais$`Violência LGBTQIAP+`)
+unique(dados_finais$`Deslocamentos médio para  denúncias de  violência  contra mulher`)
+unique(dados_finais$Feminicídio)
 
 # describe
 
@@ -357,3 +348,53 @@ desvio_padrao <- sd(dados_finais$Feminicídio)
 print(media)
 print(mediana)
 print(desvio_padrao)
+
+# dados dos mais participativos
+# perus
+perus_inicial <- dados[c(40), ]
+perus <- perus_inicial[,c(8,9,15,16,19,20,22,26,27,28,29,30,31,35,40,46,47,48,49,50)]
+View(perus)
+# parelheiros
+parelheiros_inicial <- dados[c(36), ]
+parelheiros <- parelheiros_inicial[,c(8,9,15,16,19,20,22,26,27,28,29,30,31,35,40,46,47,48,49,50)]
+View(parelheiros)
+# casa verde
+casa_verde_inicial <- dados[c(43), ]
+casa_verde <- casa_verde_inicial[,c(8,9,15,16,19,20,22,26,27,28,29,30,31,35,40,46,47,48,49,50)]
+View(casa_verde)
+
+# dados dos menos participativos
+# capela do socorro
+socorro_inicial <- dados[c(63), ]
+socorro <- socorro_inicial[,c(8,9,15,16,19,20,22,26,27,28,29,30,31,35,40,46,47,48,49,50)]
+View(socorro)
+# cidade ademar
+ademar_inicial <- dados[c(46), ]
+ademar <- ademar_inicial[,c(8,9,15,16,19,20,22,26,27,28,29,30,31,35,40,46,47,48,49,50)]
+View(ademar)
+# sé
+se_inicial <- dados[c(72), ]
+se <- se_inicial[,c(8,9,15,16,19,20,22,26,27,28,29,30,31,35,40,46,47,48,49,50)]
+View(se)
+# dados dos piores colocados
+# marsilac
+marsilac_inicial <- dados[c(37), ]
+marsilac <- marsilac_inicial[,c(8,9,15,16,19,20,22,26,27,28,29,30,31,35,40,46,47,48,49,50)]
+View(marsilac)
+# brás
+bras_inicial <- dados[c(83), ]
+bras <- bras_inicial[,c(8,9,15,16,19,20,22,26,27,28,29,30,31,35,40,46,47,48,49,50)]
+View(bras)
+# dados dos melhores colocados
+# pinheiros
+pinheiros_inicial <- dados[c(15), ]
+pinheiros <- pinheiros_inicial[,c(8,9,15,16,19,20,22,26,27,28,29,30,31,35,40,46,47,48,49,50)]
+View(pinheiros)
+# perdizes
+perdizes_inicial <- dados[c(55), ]
+perdizes <- perdizes_inicial[,c(8,9,15,16,19,20,22,26,27,28,29,30,31,35,40,46,47,48,49,50)]
+View(perdizes)
+# vila mariana
+vila_mariana_inicial <- dados[c(66), ]
+vila_mariana <- vila_mariana_inicial[,c(8,9,15,16,19,20,22,26,27,28,29,30,31,35,40,46,47,48,49,50)]
+View(vila_mariana)
