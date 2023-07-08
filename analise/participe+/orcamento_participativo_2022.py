@@ -342,9 +342,115 @@ def grafico_propostas_eleitas_viaveis(nome_da_subprefeitura: str) -> None:
   # Exibir o gráfico
   plt.show()
 
-"""### Subprefeitura: Pinheiros"""
+"""### Subprefeituras com menor participação
 
-subprefeitura = 'Pinheiros'
+#### Subprefeitura: 32. Freguesia/Brasilândia
+"""
+
+subprefeitura = 'Freguesia/Brasilândia'
+
+dados_gerais_da_subprefeitura(subprefeitura)
+
+grafico_propostas_por_categoria(subprefeitura)
+
+apoios = total_de_apoios(subprefeitura)
+if (apoios != 0):
+  propostas_mais_apoios(subprefeitura)
+else:
+  print("Total de apoios para a subprefeitura é 0.")
+
+propostas_mais_votos(subprefeitura)
+
+propostas_eleitas(subprefeitura)
+
+grafico_propostas_eleitas_viaveis(subprefeitura)
+
+"""#### Subprefeitura: 31. Pirituba/Jaraguá"""
+
+subprefeitura = 'Pirituba/Jaraguá'
+
+dados_gerais_da_subprefeitura(subprefeitura)
+
+grafico_propostas_por_categoria(subprefeitura)
+
+apoios = total_de_apoios(subprefeitura)
+if (apoios != 0):
+  propostas_mais_apoios(subprefeitura)
+else:
+  print("Total de apoios para a subprefeitura é 0.")
+
+propostas_mais_votos(subprefeitura)
+
+propostas_eleitas(subprefeitura)
+
+grafico_propostas_eleitas_viaveis(subprefeitura)
+
+"""#### Subprefeitura: 30. Cidade Ademar"""
+
+subprefeitura = 'Cidade Ademar'
+
+dados_gerais_da_subprefeitura(subprefeitura)
+
+grafico_propostas_por_categoria(subprefeitura)
+
+apoios = total_de_apoios(subprefeitura)
+if (apoios != 0):
+  propostas_mais_apoios(subprefeitura)
+else:
+  print("Total de apoios para a subprefeitura é 0.")
+
+propostas_mais_votos(subprefeitura)
+
+propostas_eleitas(subprefeitura)
+
+grafico_propostas_eleitas_viaveis(subprefeitura)
+
+"""### Subprefeituras com maior participação
+
+#### Subprefeitura: 1. Perus
+"""
+
+subprefeitura = 'Perus'
+
+dados_gerais_da_subprefeitura(subprefeitura)
+
+grafico_propostas_por_categoria(subprefeitura)
+
+apoios = total_de_apoios(subprefeitura)
+if (apoios != 0):
+  propostas_mais_apoios(subprefeitura)
+else:
+  print("Total de apoios para a subprefeitura é 0.")
+
+propostas_mais_votos(subprefeitura)
+
+propostas_eleitas(subprefeitura)
+
+grafico_propostas_eleitas_viaveis(subprefeitura)
+
+"""#### Subprefeitura: 2. Parelheiros"""
+
+subprefeitura = 'Parelheiros'
+
+dados_gerais_da_subprefeitura(subprefeitura)
+
+grafico_propostas_por_categoria(subprefeitura)
+
+apoios = total_de_apoios(subprefeitura)
+if (apoios != 0):
+  propostas_mais_apoios(subprefeitura)
+else:
+  print("Total de apoios para a subprefeitura é 0.")
+
+propostas_mais_votos(subprefeitura)
+
+propostas_eleitas(subprefeitura)
+
+grafico_propostas_eleitas_viaveis(subprefeitura)
+
+"""#### Subprefeitura: 3. Casa Verde"""
+
+subprefeitura = 'Casa Verde'
 
 dados_gerais_da_subprefeitura(subprefeitura)
 
